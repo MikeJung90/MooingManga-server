@@ -6,9 +6,9 @@ const UsersService = require('./users-service.js');
 usersRouter
   .route('/')
   .post(bodyParser, async (req, res, next) => {
-    // nickname necessary? lol
-    const {user_name, first_name, last_name, password} = req.body;
-    const newUser = {user_name, first_name, last_name, password};
+  
+    const {user_name, first_name, last_name, email, password} = req.body;
+    const newUser = {user_name, first_name, last_name, email, password};
 
     for (const [key, value] of Object.entries(newUser)) {
       if (!value) {
@@ -16,7 +16,6 @@ usersRouter
       }
     }
 
-    // user_name was nickname
     if(user_name) newUser.user_name = user_name;
 
     try {
