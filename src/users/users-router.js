@@ -39,5 +39,4 @@ usersRouter
     }
   });
 
-
 module.exports = usersRouter;

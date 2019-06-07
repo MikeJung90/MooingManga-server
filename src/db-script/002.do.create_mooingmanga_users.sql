@@ -6,3 +6,8 @@ CREATE TABLE mooingmanga_users (
   email TEXT NOT NULL,
   password TEXT NOT NULL
 );
+
+ALTER TABLE mooingmanga_manga
+  ADD COLUMN
+    user_id INTEGER REFERENCES mooingmanga_users(id)
+    ON DELETE SET NULL;

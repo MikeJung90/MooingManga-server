@@ -8,21 +8,21 @@ const MangaService = {
       .select(
         'mga.id',
         'mga.title',
-        'mga.content',
+        // 'mga.content',
         'mga.image',
         ...userFields,
       )
       .leftJoin(
         'mooingmanga_users AS usr',
-        'mga.user_id',
-        'mga.id',
+        'usr.user_id',
+        'usr.id',
       )
       .groupBy('mga.id', 'usr.id')
   },
 
   getById(db, id) {
     return MangaService.getAllManga(db)
-      .where(mga.id, id)
+      .where('mga.id', id)
       .first()
   },
 
@@ -37,7 +37,7 @@ const MangaService = {
     return {
       id: mangaData.id,
       title: xss(mangaData.title),
-      content: xss(mangaData.content),
+      // content: xss(mangaData.content),
       image: mangaData.image,
       user: mangaData.user || {},
     }
