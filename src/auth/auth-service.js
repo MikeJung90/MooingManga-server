@@ -8,7 +8,7 @@ const AuthService = {
   },
 
   findByUsername(knex, user_name){
-    return knex('thingful_users').where({user_name}).first('*');
+    return knex('mooingmanga_users').where({user_name}).first('*');
   },
 
   comparePasswords(loginPassword, savedPassword){

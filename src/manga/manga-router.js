@@ -7,11 +7,12 @@ const MangaRouter = express.Router()
 MangaRouter
   .route('/')
   .get((req, res, next) => {
-    MangaService.getAllManga(req.app.get('db'))
-      .then(manga => {
-        res.json(MangaService.serializeManga(manga))
-      })
-      .catch(next)
+    // MangaService.getAllManga(req.app.get('db'))
+    //   .then(manga => {
+    //     res.json(MangaService.serializeManga(manga))
+    //   })
+    //   .catch(next)
+    console.log('im in')
   })
 
 MangaRouter
